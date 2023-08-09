@@ -1,0 +1,22 @@
+
+
+header{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  justify-content: first baseline;
+  align-items: center;
+  padding-left: 40px;
+  
+  z-index: 2;
+  background-color: #FFF;
+  border-bottom: 2.5px solid rgba(183, 183, 183, 0.294);
+
+}
+
+
+
+
+

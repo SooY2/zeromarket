@@ -1,0 +1,61 @@
+.wrapper{
+    width: 432px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:start;
+
+
+}
+
+.wrapper label {
+    color: var(--unnamed, #4A4A4A);
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.65px;
+    margin-bottom: 5px;
+}
+.btnSelect{
+    width: 432px;
+    height: 50px;
+    padding-left:24px;
+    border-radius: 10px;
+    border: 0.7px solid #4E92F9;
+    background-color: #FFF;
+    
+    text-align: left;
+    cursor: pointer;
+
+    background: url("../../assets/zeromarketLogo.png") center rigth 14px no-repeat;
+
+}
+.btnSelect:hover,
+.btnSelect:focus{
+    /* 클릭했을 때 */
+}
+
+.options{
+    /* width: 432px; */
+    height: 300px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 0.7px solid #4E92F9;
+    background: #FFF;
+
+    display: none;
+    position: absolute;
+    width: 100%;
+
+}
+
+.btnSelect.on {
+
+}
+
+
+.btn{
+
+}

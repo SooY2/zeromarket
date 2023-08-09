@@ -1,0 +1,25 @@
+.wrapper{
+    width: 432px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:start;
+
+
+}
+
+.wrapper label {
+    color: var(--unnamed, #4A4A4A);
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.65px;
+    margin-bottom: 5px;
+}
+
+.select{
+    
+}
+

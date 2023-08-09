@@ -1,0 +1,34 @@
+.wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+
+}
+
+
+
+.input{
+    width: 100%;
+    height: 48px;
+    border-radius: 15px;
+    border: 0.7px solid var(--as, #4E92F9);
+}
+
+.input::-webkit-input-placeholder{
+
+
+    color: var(--unnamed, #AEAEAE);
+    text-align: center;
+    
+    /* 연한 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    
+}

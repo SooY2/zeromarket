@@ -1,0 +1,21 @@
+.button{
+    width: 228px;
+    height: 40px;
+    
+    border-radius: 10px;
+    border: 0.7px solid var(--as, #4E92F9);
+    background: rgba(188, 215, 255, 0.30);
+
+    text-align: center;
+    color: var(--unnamed, #4A4A4A);
+    text-align: center;
+
+    /* 로그인하기 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    
+}

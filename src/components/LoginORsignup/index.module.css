@@ -1,0 +1,52 @@
+
+
+.btnActive{
+    width: 204px;
+    height: 41px;
+
+    border-radius: 50px;
+    border: 0.7px solid #4E92F9;
+    background: var(--sdf, #BCD7FF);
+
+    color: var(--unnamed, #4A4A4A);
+    text-align: center;
+
+    /* 로그인하기 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+
+    
+}
+
+.btnActive:hover{
+    cursor: pointer;
+
+}
+
+.btnNactive{
+    width: 204px;
+    height: 41px;
+    border-radius: 50px;
+    border: 0.3px solid var(--as, #4E92F9);
+    background: var(--a, #EDF4FF);
+
+    color: var(--unnamed, #AEAEAE);
+    text-align: center;
+
+    font-family: Pretendard; 
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+}
+
+.btnNactive:hover{
+    cursor: pointer;
+    background-color:#BCD7FF;
+
+}
