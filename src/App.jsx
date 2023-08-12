@@ -7,17 +7,23 @@ import {Routes,Route} from "react-router-dom";
 //import page
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Mainpage from './pages/Mainpage';
 
+//recoil
+import {RecoilRoot} from "recoil";
 
 function App() {
   return (
-    <div className="App">
-      <header><img src={zeromarketLogo} /></header>
-      <Routes>
-        <Route path='/' element={<Login/>}/>
-        <Route path='/register' element={<Register/>}/>
-      </Routes>
-    </div>
+    <RecoilRoot>
+      <div className="App">
+        <header className='mainheader'><img src={zeromarketLogo} /></header>
+        <Routes>
+          <Route path='/' element={<Login/>}/>
+          <Route path='/register' element={<Register/>}/>
+          <Route path='/zeromarket/:userId' element={<Mainpage/>}/>
+        </Routes>
+      </div>
+    </RecoilRoot>
   )
 }
 

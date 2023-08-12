@@ -1,10 +1,11 @@
 .wrapper{
+    
     width: 432px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items:start;
-
+    box-sizing: border-box;
 
 }
 
@@ -19,7 +20,109 @@
     margin-bottom: 5px;
 }
 
-.select{
+.areaselectbox{
+    position: relative;
+    width: 100%;
+
+}
+
+.areabtn{
+ display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: 0.7px solid var(--as, #4E92F9);
+    background: #FFF;
+    box-sizing: border-box;
+    padding: 0px 24px;   
+
+}
+
+/* 드롭 내렸을 때 */
+.areabtndrop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px 10px 0px 0px;
+    border: 0.7px solid var(--as, #4E92F9);
+    border-bottom: none;
+    background: #FFF;
+    box-sizing: border-box;
+    padding: 0px 24px;
+
+    color: var(--unnamed, #4A4A4A);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
     
+    
+}
+
+.areabtn div{
+    color: var(--unnamed, #AEAEAE);
+
+    /* 연한 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    }
+
+/* 토글 내리면 보이는 li부분 */
+.areacontainer{
+    position:absolute;
+    width: 100%;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0px;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+
+    border-radius: 0px 0px 10px 10px;
+    border: 0.7px solid var(--as, #4E92F9);
+    border-top: none;
+    overflow: hidden;
+}
+
+.arealist{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;
+    background-color: #FFF;
+
+    height: 50px;
+    box-sizing: border-box;
+    padding-left: 24px;
+
+    /* 폰트 */
+    color: var(--unnamed, #4A4A4A);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    
+}
+
+.arealist:hover{
+    background-color: rgba(188, 215, 255);
 }
 

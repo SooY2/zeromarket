@@ -39,11 +39,11 @@
     height: 350px;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items:center;
     
 }
 
-.storeInfo span:nth-child(1){
+.span1{
     width: 792px;
     display: flex;
     flex-direction: column;
@@ -51,8 +51,13 @@
     align-items: center;
 }
 
-.storeInfo span:nth-child(2){
+.span2{
     width: 384px;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 10px;
 }
 
 /* 가게 상호명 입력창 */
@@ -110,6 +115,13 @@
     border-radius: 15px;
 
     background-color: transparent;
+    color: var(--unnamed, #4A4A4A);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
 
 }
 
@@ -132,3 +144,17 @@
     line-height: normal;
     letter-spacing: 0.8px;
 }
+
+/* 버튼 부분 */
+.btncontainer{
+   width: 100%;
+   padding-top: 50px;
+   position: relative; 
+   box-sizing: border-box;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+

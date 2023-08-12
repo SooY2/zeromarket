@@ -1,0 +1,14 @@
+.wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개의 열로 그리드 설정 */
+    gap: 24px; /* 이미지 간격 설정 */
+  }
+  
+.item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

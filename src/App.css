@@ -1,6 +1,6 @@
 
 
-header{
+.mainheader{
   position: fixed;
   top: 0px;
   width: 100%;
@@ -8,7 +8,7 @@ header{
   display: flex;
   justify-content: first baseline;
   align-items: center;
-  padding-left: 40px;
+  padding-left: 200px;
   
   z-index: 2;
   background-color: #FFF;

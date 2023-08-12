@@ -5,22 +5,16 @@
 import styles from "./index.module.css";
 import {useState} from "react"
 
-const InputBox =({type,label,name,placeholder})=>{
-
-    const [content,setContent] = useState("");
-
+const InputBox =(props)=>{
     return (
         <div className={styles.inputBox}>
             <div style={{display:"flex", position:"relative", width:"100%"}}>
-                <label>{label}</label>
+                <label>{props.label}</label>
                 <div style={{color:"red",fontSize:"12px",position:"absolute",left:"70px"}}>
-                    {false&&`${label}가 올바르지 않습니다.`}</div>
+                    {false&&`${props.label}가 올바르지 않습니다.`}</div>
             </div>
-            <input type={type} name={name} placeholder={placeholder} value={content} 
-                onChange={e=>{
-                    e.preventDefault();
-                    setContent(e.target.value);
-                }}></input>
+            <input type={props.type} name={props.name} placeholder={props.placeholder} value={props.value} 
+                onChange={props.onChange}></input>
                 
         </div>
     )

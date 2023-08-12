@@ -19,3 +19,8 @@
     letter-spacing: 0.8px;
     
 }
+
+.button:hover{
+    background-color: #BCD7FF;
+    cursor: pointer;
+}

@@ -2,15 +2,29 @@ import SelectStoreImg from "/src/components/RegisterStore/SelectStoreImg";
 import RegisterStoreAddress from "../../components/RegisterStore/RegisterStoreAdress";
 import styles from "./index.module.css";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import RegisterBank from "../../components/RegisterStore/RegisterBank";
+import Button from "../../components/Button";
+
+import  {storeAddress,storeDetailAddress,bank,account} from "../../state/userInfo";
+import { useRecoilValue } from "recoil";
+
 
 const Register=()=>{
 
+    const address=useRecoilValue(storeAddress);
+    const detailAddress=useRecoilValue(storeDetailAddress);
+    const storebank=useRecoilValue(bank);
+    const storeaccount = useRecoilValue(account);
+    
     const [data,setData] = useState({
         imgFile:null,
         storename:"",
         storeintroduce:"",
-
+        storeAddress:address,
+        storeDetailAddress:detailAddress,
+        storeBank:storebank,
+        storeAccount:storeaccount,
 
     })
     //가게 이미지 state 변경
@@ -30,14 +44,29 @@ const Register=()=>{
         })
     }
 
+    //제출
+    const submitRegister=(e)=>{
+        e.preventDefault();
+        console.log({
+            imgFile:null,
+            storename:data.storename,
+            storeintroduce:data.storeintroduce,
+            storeAddress:address,
+            storeDetailAddress:detailAddress,
+            storeBank:storebank,
+            storeAccount:storeaccount,
+    
+        });
+    }
+
     return (
         <div className={styles.wrapper}>
-            <div className={styles.box}>
+            <form className={styles.box} onSubmit={submitRegister}>
                 <div className={styles.storeImg}>
                     <SelectStoreImg changeImg={changeImg}/>
                 </div>
                 <div className={styles.storeInfo}>
-                    <span>
+                    <span className={styles.span1}>
                         <input type="text" 
                             name="storename"
                             value={data.storename}
@@ -50,7 +79,7 @@ const Register=()=>{
                             placeholder="가게 상호명을 입력해주세요" />
                         <div className={styles.storeintroduceBox}>
                             <div className={styles.textareaPlace}>
-                                {true&&"가게 설명을 입력해주세요"}
+                                {!data.storeintroduce&&"가게 설명을 입력해주세요"}
                             </div>
                             <textarea type="text"
                                 name="storeintroduce"
@@ -64,14 +93,18 @@ const Register=()=>{
                             
                         </div>
                     </span>
-                    <span>
+                    <span className={styles.span2}>
                         <RegisterStoreAddress/>
-                        <div>
-                            계좌번호 등록하기
-                        </div>
+                        <RegisterBank/>
                     </span>
                 </div>
-            </div>
+                <div className={styles.btncontainer}>
+                    <Button type="submit" title="가게 등록 완료하기"
+                    onClick={submitRegister}
+                    />
+                </div>
+            </form>
+            
         </div>
     )
 };

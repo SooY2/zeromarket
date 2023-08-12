@@ -9,6 +9,8 @@ import SelectArea from "../../../src/components/SelectArea";
 import { useEffect, useState,useRef, useCallback } from "react";
 import ExSelectArea from "../../components/ExSelectArea";
 
+import axios from "axios";
+
 const Login=()=>{
 
     const [mode,setMode]=useState("LOGIN");
@@ -34,21 +36,23 @@ const Login=()=>{
         setSelectValue(value);
     }
 
+    //로그인
+    const submitlogin=(e)=>{
+        e.preventDefault();
+    }
+
+    const [id,setId]=useState("");
+    const [pw,setPw]=useState("");
 
     
     if(mode==="LOGIN"){
         content=<div className={styles.wrapper}>
-        <form className={styles.box} onSubmit={e=>{
-            // e.preventDefault();
-            //post요청
-            console.log(e.target.ID.value);
-            console.log(e.target.PW.value);
-        }}>
+        <form className={styles.box} onSubmit={submitlogin}>
             <div className={styles.boxbox}>
-                <InputBox type="text" label="아이디" name="ID" placeholder="아이디를 입력하세요"/>
-                <InputBox type="password" label="비밀번호" name="PW" placeholder="비밀번호를 입력하세요"/>
+                <InputBox type="text" label="아이디" name="ID" value={id} placeholder="아이디를 입력하세요" onChange={e=>{e.preventDefault();setId(e.target.value)}}/>
+                <InputBox type="password" label="비밀번호" name="PW" value={pw} placeholder="비밀번호를 입력하세요" onChange={e=>{e.preventDefault();setPw(e.target.value)}}/>
                 <div className={styles.btnbox}>
-                    <Button type="submit" title="로그인하기"></Button>
+                    <Button type="submit" title="로그인하기" onClick={submitlogin}></Button>
                 </div>
             </div>
         </form>
