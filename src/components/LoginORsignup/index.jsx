@@ -3,10 +3,8 @@ import styles from "./index.module.css";
 
 const LogORsignup =(props)=>{
     
-    const btnstyle = props.active ? styles.btnActive:styles.btnNactive;
-    
     return (
-        <button type={props.type} className={btnstyle} onClick={props.onClick}>
+        <button type={props.type} className={styles.btnActive} onClick={props.onClick}>
             {props.title}
         </button>
     )

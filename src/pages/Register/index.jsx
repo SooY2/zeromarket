@@ -6,8 +6,9 @@ import { useEffect, useState } from "react";
 import RegisterBank from "../../components/RegisterStore/RegisterBank";
 import Button from "../../components/Button";
 
-import  {storeAddress,storeDetailAddress,bank,account} from "../../state/userInfo";
+import  {storeAddress,storeDetailAddress,bank,account,signupInfo} from "../../state/userInfo";
 import { useRecoilValue } from "recoil";
+import { useNavigate } from "react-router-dom";
 
 
 const Register=()=>{
@@ -16,6 +17,9 @@ const Register=()=>{
     const detailAddress=useRecoilValue(storeDetailAddress);
     const storebank=useRecoilValue(bank);
     const storeaccount = useRecoilValue(account);
+    const usersignupinfo=useRecoilValue(signupInfo);
+
+    const nav=useNavigate();
     
     const [data,setData] = useState({
         imgFile:null,
@@ -55,8 +59,10 @@ const Register=()=>{
             storeDetailAddress:detailAddress,
             storeBank:storebank,
             storeAccount:storeaccount,
+            signupInfo:usersignupinfo,
     
         });
+        nav("/zeromarket/1");//뒤에 회원id붙여서
     }
 
     return (

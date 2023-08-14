@@ -1,5 +1,16 @@
 import {atom} from "recoil";
 
+//회원가입 시 필요한 state들
+export const signupInfo = atom({
+    key:"signupInfo",
+    default:{
+        signupId:"",
+        signupPw:"",
+        signupArea:"",
+    },
+});
+
+
 export const storeAddress = atom({
     key:"storeAddress",
     default:"",

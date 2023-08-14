@@ -1,14 +1,20 @@
-
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .mainheader{
   position: fixed;
   top: 0px;
   width: 100%;
+  max-width: 1280px;
   min-height: 70px;
   display: flex;
   justify-content: first baseline;
   align-items: center;
-  padding-left: 200px;
+  padding:0px 40px;
   
   z-index: 2;
   background-color: #FFF;

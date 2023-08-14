@@ -1,0 +1,306 @@
+.wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: first baseline;
+}
+
+.productnamelabel{
+    color: var(--unnamed, #4A4A4A);
+
+    /* 로그인하기 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+}
+
+.productname{
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+
+    border: 0.7px solid rgba(78, 146, 249, 1);
+    background-color: #EDF4FF;
+    border-radius: 15px;
+
+    color: var(--unnamed, #4A4A4A);
+    text-align: center;
+    
+    /* 진한 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    }
+
+.productname::-webkit-input-placeholder{
+    color: var(--unnamed, #AEAEAE);
+    text-align: center;
+    
+    /* 연한 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    
+}
+
+/* 이미지 선택 컴포넌트 */
+.imgwrapper{
+    position:relative;
+    width: 100%;
+    height: 251px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 0px;
+    
+}
+
+.imglabel{
+    position:relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid var(--as, #4E92F9);
+    border-radius: 40px;
+    background: #FFF;
+    overflow: hidden;
+
+}
+
+.img{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.selectText{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 5px;
+}
+
+.selectText span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--unnamed, #AEAEAE);
+    text-align: center;
+    
+    /* 연한 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8px;  
+}
+
+.selctimgicon{
+    font-size: 30px;
+    color: rgba(188, 215, 255, 1);
+}
+
+input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+/* 카테고리,가격 등등 설정하는 부분 */
+.contentwrapper{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 한 줄에 3개의 열로 그리드 설정 */
+    gap: 24px; /* 이미지 간격 설정 */
+    row-gap: 12px;
+    margin-top: 12px;
+
+}
+
+.inputbox{
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.inputbox label{
+    color: var(--unnamed, #4A4A4A);
+
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+} 
+
+/* 카테고리 선택 */
+.areaselectbox{
+    position: relative;
+    width: 100%;
+
+}
+
+.areabtn{
+ display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: 0.7px solid var(--as, #4E92F9);
+    background: #EDF4FF;
+    box-sizing: border-box;
+    padding: 0px 24px;   
+
+}
+
+/* 드롭 내렸을 때 */
+.areabtndrop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px 10px 0px 0px;
+    border: 0.7px solid var(--as, #4E92F9);
+    border-bottom: none;
+    background: #EDF4FF;
+    box-sizing: border-box;
+    padding: 0px 24px;
+
+    color: var(--unnamed, #4A4A4A);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+}
+
+.cateinput{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    color: var(--unnamed, #4A4A4A);
+
+    /* 진한 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    }
+.cateinput::-webkit-input-placeholder{
+    color: var(--unnamed, #AEAEAE);
+
+    /* 연한 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.8px;
+}
+
+/* 토글 내리면 보이는 li부분 */
+.areacontainer{
+    position:absolute;
+    width: 100%;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0px;
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+
+    border-radius: 0px 0px 10px 10px;
+    border: 0.7px solid var(--as, #4E92F9);
+    background-color: #EDF4FF;
+    border-top: none;
+    overflow: hidden;
+}
+
+.arealist{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;
+    background-color: #EDF4FF;
+
+    height: 50px;
+    box-sizing: border-box;
+    padding-left: 24px;
+
+    /* 폰트 */
+    color: var(--unnamed, #4A4A4A);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+    
+}
+
+.arealist:hover{
+    background-color: rgba(188, 215, 255);
+    border-radius: 10px;
+}
+
+
+/* 카테고리 선택 end */
+
+.storage{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.storage button{
+    width: 104px;
+    height: 24px;
+    border-radius: 30px;
+    background-color: var(--as, #4E92F9);
+    border: none;
+    color: var(--a, #EDF4FF);
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}

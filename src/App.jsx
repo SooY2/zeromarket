@@ -8,9 +8,12 @@ import {Routes,Route} from "react-router-dom";
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Mainpage from './pages/Mainpage';
-
+import Myzero from './pages/Myzero';
 //recoil
 import {RecoilRoot} from "recoil";
+import Signup from './pages/Signup';
+import Product from './pages/Product';
+
 
 function App() {
   return (
@@ -19,8 +22,12 @@ function App() {
         <header className='mainheader'><img src={zeromarketLogo} /></header>
         <Routes>
           <Route path='/' element={<Login/>}/>
-          <Route path='/register' element={<Register/>}/>
+          <Route path='/signup' element={<Signup/>}/>
+          <Route path='/signup/register' element={<Register/>}/>
           <Route path='/zeromarket/:userId' element={<Mainpage/>}/>
+          <Route path='/myzero/:userId' element={<Myzero/>}/>
+          <Route path='/registerZero/:userId' element={<Product/>}/>
+          
         </Routes>
       </div>
     </RecoilRoot>

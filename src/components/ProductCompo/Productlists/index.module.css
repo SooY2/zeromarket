@@ -1,0 +1,69 @@
+.wrapper{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.box{
+    width: 100%;
+    height: 554px;
+    border: 1px solid var(--as, #4E92F9);
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    gap: 9px;
+}
+
+.header{
+    width: 100%;
+    height: 36px;
+    box-sizing: border-box;
+    padding:0px 10px;
+    margin:0px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--as, #4E92F9);
+    background-color: #BCD7FF;
+
+    color: var(--unnamed, #4A4A4A);
+    text-align: center;
+
+    /* 진한 */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.8px;
+}
+
+.storage{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.storage button{
+    width: 104px;
+    height: 24px;
+    border-radius: 30px;
+    background-color: var(--as, #4E92F9);
+    border: none;
+    color: var(--a, #EDF4FF);
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.6px;
+}

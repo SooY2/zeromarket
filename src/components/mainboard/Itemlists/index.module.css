@@ -1,14 +1,62 @@
 .wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .grid{
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개의 열로 그리드 설정 */
     gap: 24px; /* 이미지 간격 설정 */
+    margin-top: 30px;
   }
-  
-.item {
+
+  .box{
     width: 100%;
+    margin-top: 100px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+  }
+
+  .img{
+
+  }
+
+  .arrow_box {
+    display: none;
+    position: relative;
+    width: 250px;
+    padding: 30px;
+    margin: 30px;
+    left: 0;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 15px;
+    background-color: #BCD7FF;
+    color: #FFF;
+    font-size: 20px;
   }
   
+  .arrow_box:after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -10px;
+    border: solid transparent;
+    border-color: #FFF;
+    border-bottom-color: #BCD7FF;
+    border-width: 10px;
+    pointer-events: none;
+    content: ' ';
+  }
+  
+  .img:hover + div.arrow_box {
+    display: block;
+  }
