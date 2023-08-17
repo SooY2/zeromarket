@@ -52,7 +52,7 @@ const Login=()=>{
         <div className={styles.login}>
             
             <div className={styles.tmp}>
-                <img src="./src/assets/zeromarketLogo.png"/>
+                <img src="/src/assets/zeromarketLogo.png"/>
                 <div>재고를 재로하다</div>
             </div>
             <div className={styles.seletbox}>
