@@ -1,4 +1,4 @@
-import ProductCard from "../productCard";
+import ProductCard from "../ProductCard";
 import styles from "./index.module.css";
 import nonItem from "../../../assets/noneItem.png";
 import { useEffect,useState } from "react";
