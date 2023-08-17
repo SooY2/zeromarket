@@ -7,6 +7,8 @@ import SelectArea from "../../../src/components/SelectArea";
 import { useEffect, useState,useRef, useCallback } from "react";
 import { Link,useNavigate } from "react-router-dom";
 
+import zeromarketlogo from "/src/assets/zeromarketLogo.png";
+
 //상태관리
 import { signupInfo, } from "../../state/userInfo";
 import { useRecoilState } from "recoil";
@@ -56,7 +58,7 @@ const Signup=()=>{
     return (
         <div className={styles.signup}>
             <div className={styles.tmp}>
-                <img src="./src/assets/zeromarketLogo.png"/>
+                <img src={zeromarketlogo}/>
                 <div>재고를 재로하다</div>
             </div>
             <div className={styles.seletbox}>

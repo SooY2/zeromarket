@@ -35,11 +35,11 @@ const ProductCard=({data})=>{
     return(<div className={styles.wrapper} onClick={
         ()=>{
             console.log("클릭");
-            nav(`./1`);
+            nav(`./${data.productId}`);
         }
     }>
         <div className={styles.productImg}><img src={data.picture} /></div>
-        <div className={styles.storename}>{data.storename}</div>
+        <div className={styles.storename}>{data.storeName}</div>
         <div className={styles.content}>
             <div className={styles.productName}>{data.name}</div>
             <div className={styles.content2}>

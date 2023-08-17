@@ -4,6 +4,8 @@ import styles from "./index.module.css";
 import { signupInfo } from "../../state/userInfo";
 import { useRecoilState } from "recoil";
 
+import uptoggle from  "../../assets/icons/uptoggleicon.png";
+import downtoggle from "../../assets/icons/downtoggleicon.png";
 
 
 const arealists=[
@@ -41,7 +43,7 @@ const SelectArea = (props) => {
           <div className={isDropdownView? styles.areabtndrop : styles.areabtn} 
             onBlur={handleBlurContainer} onClick={handleClickContainer}>
               <div>{areaname}</div>
-              <img src={isDropdownView? "/src/assets/icons/downtoggleicon.png" : "/src/assets/icons/uptoggleicon.png"}/> 
+              <img src={isDropdownView?downtoggle:uptoggle}/> 
           </div>
           {isDropdownView&&
           <ul className={styles.areacontainer}>

@@ -30,12 +30,6 @@ const ProductDetail=()=>{
             setData(res.data);
             setTimeDate(formatDatetime(res.data.endTime));
         })
-        axiosInstance.get(`/store/${userid}`)
-        .then((res)=>{
-            setStorename(res.data.name);
-            setStoreadd(res.data.address);
-        })
-        
     },[]);
 
 
@@ -51,7 +45,7 @@ const ProductDetail=()=>{
         <div className={styles.wrapper}>
             <div className={styles.header}>
                 <span>어서오세요!</span>
-                <span>{storename}</span>
+                <span>{data.storeName}</span>
                 <span>입니다</span> 
             </div>
             <div className={styles.content}>
@@ -78,9 +72,9 @@ const ProductDetail=()=>{
                   </div>
                   
                   <div className={styles.content2}>
-                    <div>가게 주소 : {storeaddress}</div>
+                    <div>가게 주소 : {data.address}</div>
                     <div className={styles.map}>
-                        <KakaoMap addr={storeaddress}/>
+                        <KakaoMap addr={data.address}/>
                     </div>
                     
                   </div>
