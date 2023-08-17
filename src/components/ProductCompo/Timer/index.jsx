@@ -3,7 +3,7 @@ import Countdown from 'react-countdown';
 
 const Timer = ({timestring}) => {
   // D-day의 날짜와 시간을 설정합니다.
-  const targetDate = new Date("2023-08-17T07:00");
+  const targetDate = new Date(timestring);
 
   // Countdown 컴포넌트의 렌더링 로직입니다.
   const renderer = ({ days, hours, minutes, seconds, completed }) => {

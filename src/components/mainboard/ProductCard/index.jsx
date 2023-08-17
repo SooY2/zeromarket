@@ -1,21 +1,15 @@
 /**mainboard의 상품카드 컴포넌트 */
+import { useNavigate } from "react-router-dom";
 import Timer from "../../ProductCompo/Timer";
 import styles from "./index.module.css";
 
 import { useEffect, useState } from "react";
 
 
-const data={
-    name: "string",
-    picture: "string",
-    category: "string",
-    stockQuantity: 0,
-    endTime: "2023-08-17T04:38:14.848Z",
-    salePrice: 0,
-    culPrice: 0
-}
 
-const ProductCard=(props)=>{
+
+const ProductCard=({data})=>{
+    const nav = useNavigate();
     //할인율 구하기
     const calculateDiscountPercentage = (originalPrice, salePrice) => {
         const discount = originalPrice - salePrice;
@@ -34,11 +28,17 @@ const ProductCard=(props)=>{
       }
       useEffect(()=>{
         setTimeDate(formatDatetime(data.endTime));
+        console.log(timedate);
       },[])
       
 
-    return(<div className={styles.wrapper}>
-        <div className={styles.productImg}><img src="https://s3.ap-northeast-2.amazonaws.com/img.kormedi.com/news/article/__icsFiles/artimage/2018/05/29/c_km601/wholebread540.jpg" /></div>
+    return(<div className={styles.wrapper} onClick={
+        ()=>{
+            console.log("클릭");
+            nav(`./1`);
+        }
+    }>
+        <div className={styles.productImg}><img src={data.picture} /></div>
         <div className={styles.storename}>{data.storename}</div>
         <div className={styles.content}>
             <div className={styles.productName}>{data.name}</div>

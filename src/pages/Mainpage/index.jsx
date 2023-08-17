@@ -6,7 +6,9 @@ import marketicon from "/src/assets/icons/marketicon.png";
 
 //상태관리
 import {userDong, showCate} from "../../state/userInfo";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { productlist,addresslist } from "../../state/product";
+
 
 import axios from "axios";
 import axiosInstance from "../../../axiosConfig";
@@ -24,27 +26,29 @@ const Mainpage=()=>{
     const userid=useParams().userId;
     const nav=useNavigate();
 
-    const [addresslist,setAddresslists]=useState([
-        {address:"",
-        name:"",},
-    ]);
+    const [addresslists,setAddresslists]=useRecoilState(addresslist);
+    const [itemlist,setItemlist]=useRecoilState(productlist);
 
     //지도에 가게 불러오기
     useEffect(()=>{
         console.log(usertown,usercate);
-        axiosInstance.post(`/main/list`,{category:usercate,address:usertown})
+        axiosInstance.post(`/main/${userid}/list`,{category:usercate,address:usertown})
         .then(res=>{
             console.log(res);
             console.log(res.data.prodctList);
             console.log(res.data.storeList);
             setAddresslists(res.data.storeList);
+            setItemlist(res.data.prodctList);
         })
         .catch(err=>console.log(err));
+
     },[usercate]);
 
     return (<div className={styles.wrapper}>
         <header className={styles.header}>
-            <img src={zeromarketLogo}/>
+            <img src={zeromarketLogo} onClick={()=>[
+                nav(`/zeromarket/${userid}`)
+            ]}/>
             <div className={styles.searchbar}>
                 <img src={searchicon}/>
                 <input></input>
@@ -58,7 +62,7 @@ const Mainpage=()=>{
             <span className={styles.mainleft}>
                 {/* 어서오세요~~부분 */}
                 <div className={styles.welcome}>
-                    <span>어서오세요! 수연님,</span>
+                    <span>어서오세요!</span>
                     <span> 현재 보고계신 곳은 </span>
                     <span style={{fontSize:"24px"}}> {usertown} </span>
                     <span>입니다</span></div>
@@ -66,10 +70,11 @@ const Mainpage=()=>{
                 <Category/>
                 {/* 지도 */}
                 <div className={styles.mapcontainer}>
-                    <KakaoMap addresslists={addresslist}/>
+                    <KakaoMap />
                 </div>
                 {/* 상품 리스트 */}
                 <Itemlists/>
+
             </span>
             <span className={styles.mainright}>
                 <div>최근 본 재료</div>

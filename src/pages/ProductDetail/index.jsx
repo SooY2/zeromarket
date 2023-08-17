@@ -58,7 +58,7 @@ const ProductDetail=()=>{
                   <div className={styles.content1}>
                     <div className={styles.content1Left}>
                         <label>{storename} > {data.category}</label>
-                        <img></img>
+                        <img src={data.picture}></img>
                     </div>
                     <div className={styles.content1Right}>
                         <div>
@@ -80,7 +80,7 @@ const ProductDetail=()=>{
                   <div className={styles.content2}>
                     <div>가게 주소 : {storeaddress}</div>
                     <div className={styles.map}>
-                        <KakaoMap address={storeaddress} name={storename}/>
+                        <KakaoMap addr={storeaddress}/>
                     </div>
                     
                   </div>
