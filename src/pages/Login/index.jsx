@@ -16,6 +16,8 @@ import { userDong,coordinates } from "../../state/userInfo";
 import { useRecoilState } from "recoil";
 import axiosInstance from "../../../axiosConfig";
 
+import {zeromarket} from "/src/assets/zeromarketLogo.png";
+
 const Login=()=>{
     const [id,setId]=useState("");
     const [pw,setPw]=useState("");
@@ -52,7 +54,7 @@ const Login=()=>{
         <div className={styles.login}>
             
             <div className={styles.tmp}>
-                <img src={require("/src/assets/zeromarketLogo.png")}/>
+                <img src={zeromarket}/>
                 <div>재고를 재로하다</div>
             </div>
             <div className={styles.seletbox}>
