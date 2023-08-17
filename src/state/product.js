@@ -14,3 +14,8 @@ export const addresslist = atom({
     key:"addresslist",
     default:[],
 });
+
+export const recentProductlist = atom({
+    key:"recentProductlist",
+    default:[],
+});

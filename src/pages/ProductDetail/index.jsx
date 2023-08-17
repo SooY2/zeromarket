@@ -1,13 +1,15 @@
-import { useEffect,useState } from "react";
+import React,{ useEffect,useState } from "react";
 import styles from "./index.module.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axiosInstance from "../../../axiosConfig";
 import Timer from "../../components/ProductCompo/Timer";
 import KakaoMap from "../../components/mainboard/KakaoMap";
+import zeromarketLogo from "/src/assets/zeromarketLogo.png";
 
 
 
 const ProductDetail=()=>{
+    const nav = useNavigate();
     const userid=useParams().userId;
     const productid=useParams().productId;
     const [data,setData]=useState({});
@@ -28,6 +30,7 @@ const ProductDetail=()=>{
         .then(res=>{
             console.log(res.data);
             setData(res.data);
+            setStoreadd(res.data.address);
             setTimeDate(formatDatetime(res.data.endTime));
         })
     },[]);
@@ -43,6 +46,10 @@ const ProductDetail=()=>{
 
     return (
         <div className={styles.wrapper}>
+            <header className='mainheader'><img src={zeromarketLogo} onClick={
+            ()=>{
+                nav(`/zeromarket/${userid}`)
+                }}/></header>
             <div className={styles.header}>
                 <span>어서오세요!</span>
                 <span>{data.storeName}</span>
@@ -74,7 +81,8 @@ const ProductDetail=()=>{
                   <div className={styles.content2}>
                     <div>가게 주소 : {data.address}</div>
                     <div className={styles.map}>
-                        <KakaoMap addr={data.address}/>
+                        <KakaoMap addr={storeaddress}/>
+
                     </div>
                     
                   </div>

@@ -71,6 +71,10 @@
     letter-spacing: 0.8px;
 }
 
+.gomyzero:hover{
+    cursor: pointer;
+}
+
 /* mainboard */
 .mainboard{
     box-sizing: border-box;

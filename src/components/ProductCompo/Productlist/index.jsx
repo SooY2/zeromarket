@@ -25,7 +25,7 @@ const Productlist=({product})=>{
 
         }}>
             {/* <li>번호</li> */}
-            <img src={product.picture} alt="상품 사진"/>
+            <img src={product.picture} alt={product.name}/>
             <li>{product.name}</li>
             <li>{product.category}</li>
             <li>{(product.stockQuantity<=0)?"판매완료":product.stockQuantity}</li>

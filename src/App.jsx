@@ -21,7 +21,10 @@ function App() {
   return (
     <RecoilRoot>
       <div className="App">
-        <header className='mainheader'><img src={zeromarketLogo} onClick={()=>{nav("/")}}/></header>
+        <header className='mainheader'><img src={zeromarketLogo} onClick={
+          ()=>{
+            nav("/")
+            }}/></header>
         <Routes>
           <Route path='/' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>

@@ -5,11 +5,18 @@ import styles from "./index.module.css";
 
 import { useEffect, useState } from "react";
 
+import { recentProductlist } from "../../../state/product";
+import { useRecoilState } from "recoil";
+
 
 
 
 const ProductCard=({data})=>{
     const nav = useNavigate();
+
+    //최근 본 재로
+    const [recentlists,setRecentlists]=useRecoilState(recentProductlist);
+
     //할인율 구하기
     const calculateDiscountPercentage = (originalPrice, salePrice) => {
         const discount = originalPrice - salePrice;
@@ -36,9 +43,11 @@ const ProductCard=({data})=>{
         ()=>{
             console.log("클릭");
             nav(`./${data.productId}`);
+            setRecentlists(recentlists.concat(data));
+            console.log("최근 본 재로",recentlists);
         }
     }>
-        <div className={styles.productImg}><img src={data.picture} /></div>
+        <div className={styles.productImg}><img src={data.picture}/></div>
         <div className={styles.storename}>{data.storeName}</div>
         <div className={styles.content}>
             <div className={styles.productName}>{data.name}</div>

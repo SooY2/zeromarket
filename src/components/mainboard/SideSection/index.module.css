@@ -1,10 +1,93 @@
 .wrapper{
     width: 226px;
-    height: 647px;
+    height: auto;
     border-radius: 20px;
     background-color: #EDF4FF;
 }
 
 .recents{
-    height: 340px;
+    min-height: 340px;
+    margin: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 10px;
+}
+
+.container{
+    width: 200px;
+    height: 55px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 0.7px solid var(--as, #4E92F9);
+    padding: 0px 17px;
+    background: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container:hover{
+    cursor: pointer;
+}
+
+.container img{
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+    background-color: #EDF4FF;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 3px;
+}
+
+.right div:nth-child(2){
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.name{
+    color: var(--unnamed, #4A4A4A);
+text-align: right;
+font-family: Pretendard;
+font-size: 14px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+letter-spacing: 0.6px;
+}
+
+.storename{
+    color: var(--unnamed, #AEAEAE);
+    text-align: right;
+    font-family: Pretendard;
+    font-size: 7px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    max-width: 60px;
+    }
+
+
+
+.totalPrice{
+    color: #000;
+    text-align: right;
+    font-family: Pretendard;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.955px;
+
 }

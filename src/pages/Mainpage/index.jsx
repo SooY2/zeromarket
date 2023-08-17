@@ -21,22 +21,24 @@ import SideSection from "../../components/mainboard/SideSection";
 import { useEffect, useState } from "react";
 
 const Mainpage=()=>{
-    const usertown=useRecoilValue(userDong);
+    const usertown=localStorage.getItem('Dong');
+    // const usertown=useRecoilValue(userDong);
     const usercate=useRecoilValue(showCate);
     const userid=useParams().userId;
     const nav=useNavigate();
 
     const [addresslists,setAddresslists]=useRecoilState(addresslist);
     const [itemlist,setItemlist]=useRecoilState(productlist);
+    const [search,setSearch]=useState("");
 
     //지도에 가게 불러오기
     useEffect(()=>{
         console.log(usertown,usercate);
         axiosInstance.post(`/main/${userid}/list`,{category:usercate,address:usertown})
         .then(res=>{
-            console.log(res);
-            console.log(res.data.prodctList);
-            console.log(res.data.storeList);
+            // console.log(res);
+            // console.log(res.data.prodctList);
+            // console.log(res.data.storeList);
             setAddresslists(res.data.storeList);
             setItemlist(res.data.prodctList);
         })
@@ -49,10 +51,21 @@ const Mainpage=()=>{
             <img src={zeromarketLogo} onClick={()=>[
                 nav(`/zeromarket/${userid}`)
             ]}/>
-            <div className={styles.searchbar}>
+            <form className={styles.searchbar} onSubmit={(e)=>{
+                e.preventDefault();
+                // console.log(userDong,search)
+                axiosInstance.post(`/main/${userid}/search`,{address:usertown,name:search})
+                .then(res=>{
+                    setItemlist(res.data);
+                })
+                .catch(err=>console.log(err));
+            }}>
                 <img src={searchicon}/>
-                <input></input>
-            </div>
+                <input type="text" name="seachcontent" value={search} onChange={(e)=>{
+                    e.preventDefault();
+                    setSearch(e.target.value);
+                }}></input>
+            </form>
             <button className={styles.gomyzero} onClick={()=>{
                 nav(`/myzero/${userid}`);
             }}>
@@ -77,7 +90,7 @@ const Mainpage=()=>{
 
             </span>
             <span className={styles.mainright}>
-                <div>최근 본 재료</div>
+                <div>최근 본 재로</div>
                 <SideSection></SideSection>
             </span>
         </div>

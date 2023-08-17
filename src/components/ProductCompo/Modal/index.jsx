@@ -38,7 +38,7 @@ const Modal=({show})=>{
                         <li>판매수량</li>
                     </ul>
                     <ul>
-                        <li>{data.picture}</li>
+                        <li className={styles.img} ><img src={data.picture}/></li>
                         <li>{data.name}</li>
                         <li>{data.category}</li>
                         <li><input type="number" className={styles.input} value={sell}

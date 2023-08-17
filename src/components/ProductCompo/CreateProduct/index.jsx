@@ -4,6 +4,8 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 import axiosInstance from "../../../../axiosConfig";
 import { useParams } from "react-router-dom";
+import uptoggle from  "/src/assets/icons/uptoggleicon.png";
+import downtoggle from "/src/assets/icons/downtoggleicon.png";
 
 const catelists=["식료품","음식","카페/베이커리","생활용품","패션의류/잡화","문구/오피스","뷰티","반려동물"];
 
@@ -138,7 +140,7 @@ const CreateProduct=()=>{
                             name="category"
                             placeholder="카테고리 선택" 
                             value={catename} disabled></input>
-                        <img src={isDropdownView? "/src/assets/icons/uptoggleicon.png" : "/src/assets/icons/downtoggleicon.png"}/> 
+                        <img src={isDropdownView?downtoggle:uptoggle}/>
                     </div>
                     {isDropdownView&&
                     <ul className={styles.areacontainer}>

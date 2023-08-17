@@ -39,6 +39,9 @@ const Login=()=>{
                 y:res.data.longitude,
             });
             nav(`/zeromarket/${res.data.userId}`);
+            localStorage.setItem("Dong", res.data.nickname);
+            localStorage.setItem("Coorx", res.data.latitude);
+            localStorage.setItem("Coory", res.data.longitude);
         })
         .catch(err=>{
             if(err.response.status===404){

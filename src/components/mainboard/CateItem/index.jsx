@@ -21,7 +21,6 @@ const CateItems=({idx,icon,catename})=>{
     const handleCate=(e)=>{
         setCate(catelists[idx]);
         console.log(catelists[idx]);
-        //상세보기로 nav.
     }
     return (
         <button className={styles.wrapper} onClick={handleCate}>

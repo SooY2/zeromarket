@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-
+import zeromarketLogo from "/src/assets/zeromarketLogo.png";
 
 import { useEffect, useState } from "react";
 import Button from "../../components/Button";
@@ -53,6 +53,10 @@ const Myzero=()=>{
     
     return (
         <div className={styles.wrapper}>
+            <header className='mainheader'><img src={zeromarketLogo} onClick={
+            ()=>{
+                nav(`/zeromarket/${userid}`)
+                }}/></header>
             <form className={styles.box}>
                 <div className={styles.storeImg}>
                     <img src=""/>
