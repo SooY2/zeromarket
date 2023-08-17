@@ -1,10 +1,62 @@
 import styles from "./index.module.css";
 import{MdOutlineImageSearch} from "react-icons/md";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import axios from "axios";
+import axiosInstance from "../../../../axiosConfig";
+import { useParams } from "react-router-dom";
 
 const catelists=["식료품","음식","카페/베이커리","생활용품","패션의류/잡화","문구/오피스","뷰티","반려동물"];
 
 const CreateProduct=()=>{
+
+    const userid=useParams().userId;
+
+    const [state,setState]=useState({
+        name: "",
+        picture: "",
+        category: "",
+        //stockQuantity: null,
+        endTime: "", //"2023-08-16T08:37:36.864Z",
+        //salePrice: undefined,
+        //culPrice: undefined
+    });
+    //state값 변경하는 함수
+    const handleState=(e)=>{
+        e.preventDefault();
+        setState({
+            ...state,
+            [e.target.name]:e.target.value,
+        });
+        console.log(state);
+    }
+
+    //날짜, 시간 관리
+    const [deadlineDate, setDeadlineDate] = useState('');
+    const [deadlineTime, setDeadlineTime] = useState('');
+
+    const handleDateChange = (e) => {
+        setDeadlineDate(e.target.value);
+      };
+    
+      const handleTimeChange = (e) => {
+        setDeadlineTime(e.target.value);
+      };
+    
+      const handleCombineDateTime = () => {
+        const combinedDateTime = `${deadlineDate}T${deadlineTime}`;
+        setState({
+          ...state,
+          endTime: combinedDateTime,
+        });
+      };
+    
+      useEffect(() => {
+        const combinedDateTime = `${deadlineDate}T${deadlineTime}`;
+        setState({
+            ...state,
+            endTime:combinedDateTime,
+        })
+      }, [deadlineDate,deadlineTime]); // state가 변경될 때마다 실행
 
     const reader = new FileReader();
     const [img,setImg]=useState(null);
@@ -38,10 +90,28 @@ const CreateProduct=()=>{
         }, 200);
     }
 
-    return(<div className={styles.wrapper}>
+    //제출
+    const submitProduct=(e)=>{
+        // e.preventDefault();
+        handleCombineDateTime();
+        console.log(state);
+        //서버에 post
+        axiosInstance.post(`/product/${userid}`,state)
+        .then(res=>{
+            console.log(res);
+        })
+        .catch(err=>console.log(err));
+    };
+
+
+
+    return(<form className={styles.wrapper} onSubmit={submitProduct}>
         <div className={styles.productnamelabel}>상품명</div>
         <input className={styles.productname} 
-            placeholder="상품명을 등록해주세요"/>
+            placeholder="상품명을 등록해주세요"
+            value={state.name}
+            name="name"
+            onChange={handleState}/>
         {/*상품 사진 등록부분  */}
         <div className={styles.imgwrapper}>
             <label className={styles.imglabel} htmlFor="ex_file">
@@ -64,8 +134,10 @@ const CreateProduct=()=>{
                 <div className={styles.areaselectbox}>
                     <div className={isDropdownView? styles.areabtndrop : styles.areabtn} 
                         onBlur={handleBlurContainer} onClick={handleClickContainer}>
-                        <input className={styles.cateinput} placeholder="카테고리 선택" 
-                            value={catename}></input>
+                        <input className={styles.cateinput} 
+                            name="category"
+                            placeholder="카테고리 선택" 
+                            value={catename} disabled></input>
                         <img src={isDropdownView? "/src/assets/icons/uptoggleicon.png" : "/src/assets/icons/downtoggleicon.png"}/> 
                     </div>
                     {isDropdownView&&
@@ -74,6 +146,10 @@ const CreateProduct=()=>{
                             <li key={idx} onClick={(e)=>{
                                 e.preventDefault();
                                 setCatename(cate);
+                                setState({
+                                    ...state,
+                                    category:cate,
+                                })
                                 // props.changeArea(cate);
                                 setDropdownView(false);  
                             }}
@@ -84,35 +160,51 @@ const CreateProduct=()=>{
             </div>
             <div className={styles.inputbox}>
                 <label>재고수량</label>
-                <input className={styles.productname}
-                    placeholder="수량 입력"></input>
+                <input type="number" 
+                    className={styles.productname}
+                    placeholder="수량 입력"
+                    value={state.stockQuantity}
+                    name="stockQuantity"
+                    onChange={handleState}></input>
             </div>
             <div className={styles.inputbox}>
                 <label>판매 마감 시간</label>
                 <input className={styles.productname}
-                    placeholder="00 : 00"></input>
+                    type="time"
+                    placeholder="00 : 00"
+                    onChange={handleTimeChange}></input>
             </div>
             <div className={styles.inputbox}>
                 <label>판매 마감 날짜</label>
                 <input className={styles.productname}
-                    placeholder="0000-00-00"></input>
+                    type="date"
+                    placeholder="0000-00-00"
+                    onChange={handleDateChange}></input>
             </div>
             <div className={styles.inputbox}>
                 <label>판매 가격/원</label>
-                <input className={styles.productname}
-                    placeholder="가격 입력"></input>
+                <input type="number"  
+                    className={styles.productname}
+                    placeholder="가격 입력"
+                    value={state.salePrice}
+                    name="salePrice"
+                    onChange={handleState}></input>
             </div>
             <div className={styles.inputbox}>
                 <label>정상 가격/원</label>
-                <input className={styles.productname}
-                    placeholder="가격 입력"></input>
+                <input type="number"  
+                    className={styles.productname}
+                    placeholder="가격 입력"
+                    value={state.culPrice}
+                    name="culPrice"
+                    onChange={handleState}></input>
             </div>
         </div>
         <div className={styles.storage}>
             <button>저장하기</button>
         </div>
 
-    </div>)
+    </form>)
 };
 
 export default CreateProduct;

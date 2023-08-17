@@ -7,6 +7,8 @@ export const signupInfo = atom({
         signupId:"",
         signupPw:"",
         signupArea:"",
+        latitude: 0,
+        longitude: 0,
     },
 });
 
@@ -44,5 +46,5 @@ export const coordinates = atom({
 //user가 보고있는 현재 카테고리
 export const showCate = atom({
     key:"showCate",
-    default:0,
+    default:"식료품",
 })

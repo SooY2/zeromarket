@@ -1,0 +1,29 @@
+
+.marker {
+    position: relative;
+    width: 250px;
+    padding: 30px;
+    margin: 30px;
+    left: 0;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 15px;
+    background-color: #BCD7FF;
+    color: #FFF;
+    font-size: 20px;
+  }
+  
+  .marker:after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -10px;
+    border: solid transparent;
+    border-color: #FFF;
+    border-bottom-color: #BCD7FF;
+    border-width: 10px;
+    pointer-events: none;
+    content: ' ';
+  }

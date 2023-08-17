@@ -31,6 +31,8 @@ const RegisterStoreAddress=()=>{
         setAddress(fullAddress);
         setmodal(false);
       };
+
+      
     
     
 
@@ -51,7 +53,8 @@ const RegisterStoreAddress=()=>{
             type="text"
             placeholder="상세주소를 입력해주세요"
             defaultValue={address}
-            disabled/>
+            disabled
+            />
         <input className={styles.input} 
             type="text"
             placeholder="상세주소를 입력해주세요"

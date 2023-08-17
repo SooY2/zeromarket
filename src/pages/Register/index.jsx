@@ -9,6 +9,7 @@ import Button from "../../components/Button";
 import  {storeAddress,storeDetailAddress,bank,account,signupInfo} from "../../state/userInfo";
 import { useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../../axiosConfig";
 
 
 const Register=()=>{
@@ -62,7 +63,36 @@ const Register=()=>{
             signupInfo:usersignupinfo,
     
         });
-        nav("/zeromarket/1");//뒤에 회원id붙여서
+        const userSignUpRequestDto = {
+            ids: usersignupinfo.signupId,
+            password: usersignupinfo.signupPw,
+            nickname: usersignupinfo.signupArea,
+            latitude: usersignupinfo.latitude,
+            longitude: usersignupinfo.longitude,
+          };
+    
+          const storeCreateRequestDto = {
+            picture: "string",
+            name: data.storename,
+            explanation: data.storeintroduce,
+            address: address,
+            detailAddress:detailAddress,
+            bank: storebank,
+            account: storeaccount
+          };
+          console.log(userSignUpRequestDto,storeCreateRequestDto);
+        axiosInstance.post(`/user/sign-up`,{
+            userSignUpRequestDto,
+            storeCreateRequestDto   
+        })
+        .then(res=>{
+            console.log(res);
+             nav("/");//뒤에 회원id붙여서
+             
+            }
+            )
+        .catch(err=>console.log(err))
+       
     }
 
     return (

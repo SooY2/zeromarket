@@ -79,7 +79,7 @@ const RegisterBank=({onChange})=>{
         
     };
         const handleSelect = (selectedOption)=>{
-            setStoreBank(selectedOption.value);
+            setStoreBank(selectedOption.label);
             //console.log(selectedOption.value,storeaccount);
           }
         
@@ -111,9 +111,10 @@ const RegisterBank=({onChange})=>{
         </Select>
 
         <input className={styles.input} 
-            type="text"
+            type="accountNumber"
             placeholder="계좌번호를 입력해주세요"
             value={storeaccount}
+            maxLength={19}
             onChange={e=>{
               e.preventDefault();
               setStoreaccount(e.target.value);

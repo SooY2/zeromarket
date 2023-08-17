@@ -6,8 +6,12 @@ import Button from "../../components/Button";
 
 import  {storeAddress,storeDetailAddress,bank,account,signupInfo} from "../../state/userInfo";
 import { useRecoilValue } from "recoil";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import axiosInstance from "../../../axiosConfig";
 const Myzero=()=>{
+    const userid=useParams().userId;
+
     const address=useRecoilValue(storeAddress);
     const detailAddress=useRecoilValue(storeDetailAddress);
     const storebank=useRecoilValue(bank);
@@ -16,15 +20,32 @@ const Myzero=()=>{
     const nav=useNavigate();
     
     const [data,setData] = useState({
-        imgFile:null,
-        storename:"물고기 날다",
-        storeintroduce:"횟집인가?",
-        storeAddress:address,
-        storeDetailAddress:detailAddress,
-        storeBank:storebank,
-        storeAccount:storeaccount,
+        // imgFile:null,
+        // storename:"물고기 날다",
+        // storeintroduce:"횟집인가?",
+        // storeAddress:address,
+        // storeDetailAddress:detailAddress,
+        // storeBank:storebank,
+        // storeAccount:storeaccount,
 
     })
+
+    useEffect(()=>{
+        axiosInstance.get(`/store/${userid}`)
+        .then(res=>{
+            console.log(res.data);
+            setData({
+                imgFile:null,
+                storename:res.data.name,
+                storeintroduce:res.data.explanation,
+                storeAddress:res.data.address,
+                storeDetailAddress:res.data.detailAddress,
+                storeBank:res.data.bank,
+                storeAccount:res.data.account,
+            })
+        })
+        .catch(err=>console.lof(err))
+    },[]);
 
 
 
@@ -34,7 +55,7 @@ const Myzero=()=>{
         <div className={styles.wrapper}>
             <form className={styles.box}>
                 <div className={styles.storeImg}>
-                    <img src="https://ganpandirect.com/sign_picture/20210719025642_1_0.jpg"/>
+                    <img src=""/>
                 </div>
                 <div className={styles.storeInfo}>
                     <span className={styles.span1}>
@@ -60,12 +81,12 @@ const Myzero=()=>{
                             <div>가게주소</div>
                             <input className={styles.input} 
                                 type="text"
-                                defaultValue={address}
+                                defaultValue={data.storeAddress}
                                 placeholder="주소"
                                 disabled/>
                             <input className={styles.input} 
                                 type="text"
-                                defaultValue={detailAddress}
+                                defaultValue={data.storeDetailAddress}
                                 placeholder="상세주소"
                                 disabled
                                 />
@@ -76,17 +97,17 @@ const Myzero=()=>{
                             <input className={styles.input} 
                                 type="text"
                                 placeholder="은행"
-                                value={storeaccount} />
+                                value={data.storeBank} />
                             <input className={styles.input} 
                                 type="text"
                                 placeholder="계좌번호"
-                                value={storeaccount} />
+                                value={data.storeAccount} />
                         </div>
                     </span>
                 </div>
                 <div className={styles.btncontainer}>
                     <Button type="submit" title="상품 등록하러 가기" onClick={()=>{
-                        nav("/registerZero/1");
+                        nav(`/registerZero/${userid}`);
                     }}/>
                     <Button type="submit" title="상세페이지 보러 가기"/>
                 </div>

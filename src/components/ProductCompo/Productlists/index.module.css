@@ -14,13 +14,27 @@
     padding: 0px;
     margin: 0px;
     gap: 9px;
+    background-color: #EDF4FF;
+    
+}
+
+.box div{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y:scroll;
+    gap: 9px;
+
 }
 
 .header{
     width: 100%;
     height: 36px;
     box-sizing: border-box;
-    padding:0px 10px;
+    padding-left: 10px;
+    padding-right: 30px;
     margin:0px;
     list-style: none;
     display: flex;
@@ -35,11 +49,16 @@
 
     /* 진한 */
     font-family: Pretendard;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     letter-spacing: 0.8px;
+}
+
+.header li{
+    width: 100px;
+    text-align: center;
 }
 
 .storage{
@@ -66,4 +85,8 @@
     font-weight: 600;
     line-height: normal;
     letter-spacing: 0.6px;
+}
+
+.storage button:hover{
+    cursor: pointer;
 }

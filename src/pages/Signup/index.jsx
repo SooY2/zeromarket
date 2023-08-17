@@ -42,6 +42,7 @@ const Signup=()=>{
         else{
             //navite -> state전달
             setsigninfo({
+                ...signinfo,
                 signupId:state.Id,
                 signupPw:state.Pw,
                 signupArea:state.selectArea,

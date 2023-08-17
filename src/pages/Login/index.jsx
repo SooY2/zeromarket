@@ -12,17 +12,38 @@ import ExSelectArea from "../../components/ExSelectArea";
 import axios from "axios";
 import { Link,useNavigate } from "react-router-dom";
 
+import { userDong,coordinates } from "../../state/userInfo";
+import { useRecoilState } from "recoil";
+import axiosInstance from "../../../axiosConfig";
+
 const Login=()=>{
     const [id,setId]=useState("");
     const [pw,setPw]=useState("");
 
     const nav=useNavigate();
+    const [dong,setDong]=useRecoilState(userDong);
+    const [coor,setCoor]=useRecoilState(coordinates);
 
     //로그인
     const submitlogin=(e)=>{
         e.preventDefault();
         console.log(id,pw);
-        nav("/zeromarket/1")
+        axiosInstance.post(`/user/${id}/${pw}`)
+        .then(res=>{
+            console.log(res.data);
+            setDong(res.data.nickname);
+            setCoor({
+                x:res.data.latitude,
+                y:res.data.longitude,
+            });
+            nav(`/zeromarket/${res.data.userId}`);
+        })
+        .catch(err=>{
+            if(err.response.status===404){
+                alert("아이디와 비밀번호를 확인해주세요");
+            }
+        })
+        
     }
 
  

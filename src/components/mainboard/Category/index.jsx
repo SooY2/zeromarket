@@ -1,6 +1,7 @@
 import CateItems from "../CateItem";
 import styles from "./index.module.css";
 
+
 import {allicon,beautyicon,breadicon,clothingicon,dailyitemicon,foodicon,groceriesicon,officeitem,peticon} from "../../../assets/cateIcons";
 
 const catelists=[
@@ -20,7 +21,7 @@ const Category=()=>{
 
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} >
             {catelists.map((catelist,idx)=>(
                 <CateItems key={idx} idx={idx} icon={catelist.img} catename={catelist.name}/>
             ))}

@@ -3,16 +3,12 @@ import styles from "./index.module.css";
 import nonItem from "../../../assets/noneItem.png";
 
 const datas=[
-    {name:"dd"},
-    {name:"ss"},
-    {name:"d"},
-    {name:"sd"},
-    {name:"fsd"},
-    {name:"cd"},
-    {name:"cds"},
-    {name:"c"},
-    {name:"ss"}
+    {
+        
+    },
 ]
+
+
 
 const Itemlists=()=>{
     return (

@@ -3,10 +3,24 @@ import styles from "./index.module.css";
 import { showCate } from "../../../state/userInfo";
 import { useRecoilState } from "recoil";
 
-const CateItems=({idx,icon,catename,})=>{
+const catelists=[
+    "전체",
+    "식료품",
+    "음식",
+    "카페/베이커리",
+    "생활용품",
+    "패션의류/잡화",
+    "문구/오피스",
+    "뷰티",
+    "반려동물"
+
+]
+
+const CateItems=({idx,icon,catename})=>{
     const [cate,setCate]=useRecoilState(showCate);
-    const handleCate=()=>{
-        setCate(idx);
+    const handleCate=(e)=>{
+        setCate(catelists[idx]);
+        console.log(catelists[idx]);
         //상세보기로 nav.
     }
     return (

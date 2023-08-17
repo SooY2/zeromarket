@@ -3,7 +3,7 @@ import './App.css';
 import zeromarketLogo from "/src/assets/zeromarketLogo.png";
 
 //라우트 
-import {Routes,Route} from "react-router-dom";
+import {Routes,Route,useNavigate} from "react-router-dom";
 //import page
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -13,13 +13,15 @@ import Myzero from './pages/Myzero';
 import {RecoilRoot} from "recoil";
 import Signup from './pages/Signup';
 import Product from './pages/Product';
+import ProductDetail from './pages/ProductDetail';
 
 
 function App() {
+  const nav=useNavigate();
   return (
     <RecoilRoot>
       <div className="App">
-        <header className='mainheader'><img src={zeromarketLogo} /></header>
+        <header className='mainheader'><img src={zeromarketLogo} onClick={()=>{nav("/")}}/></header>
         <Routes>
           <Route path='/' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
@@ -27,6 +29,7 @@ function App() {
           <Route path='/zeromarket/:userId' element={<Mainpage/>}/>
           <Route path='/myzero/:userId' element={<Myzero/>}/>
           <Route path='/registerZero/:userId' element={<Product/>}/>
+          <Route path='/zeromarket/:userId/:productId' element={<ProductDetail/>}/>
           
         </Routes>
       </div>
