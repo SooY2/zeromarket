@@ -35,7 +35,7 @@ const Myzero=()=>{
         .then(res=>{
             console.log(res.data);
             setData({
-                imgFile:null,
+                picture:res.data.picture,
                 storename:res.data.name,
                 storeintroduce:res.data.explanation,
                 storeAddress:res.data.address,
