@@ -4,7 +4,7 @@ import { showCate } from "../../../state/userInfo";
 import { useRecoilState } from "recoil";
 
 const catelists=[
-    "전체",
+    //"전체",
     "식료품",
     "음식",
     "카페/베이커리",
