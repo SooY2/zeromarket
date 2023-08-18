@@ -20,6 +20,19 @@ import Itemlists from "../../components/mainboard/Itemlists";
 import SideSection from "../../components/mainboard/SideSection";
 import { useEffect, useState } from "react";
 
+const catelists=[
+    //"전체",
+    "식료품",
+    "음식",
+    "카페/베이커리",
+    "생활용품",
+    "패션의류/잡화",
+    "문구/오피스",
+    "뷰티",
+    "반려동물",
+
+]
+
 const Mainpage=()=>{
     const usertown=localStorage.getItem('Dong');
     // const usertown=useRecoilValue(userDong);
@@ -30,21 +43,30 @@ const Mainpage=()=>{
     const [addresslists,setAddresslists]=useRecoilState(addresslist);
     const [itemlist,setItemlist]=useRecoilState(productlist);
     const [search,setSearch]=useState("");
+    const [all,setall]=useState([]);
 
     //지도에 가게 불러오기
     useEffect(()=>{
-        console.log(usertown,usercate);
+        
+            console.log(usertown,usercate);
+        
         axiosInstance.post(`/main/${userid}/list`,{category:usercate,address:usertown})
         .then(res=>{
             // console.log(res);
             // console.log(res.data.prodctList);
-            // console.log(res.data.storeList);
+            //console.log(res.data.storeList);
             setAddresslists(res.data.storeList);
             setItemlist(res.data.prodctList);
         })
         .catch(err=>console.log(err));
+        
+        
+    
 
     },[usercate]);
+
+
+
 
     return (<div className={styles.wrapper}>
         <header className={styles.header}>

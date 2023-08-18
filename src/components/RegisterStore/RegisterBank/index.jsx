@@ -6,9 +6,18 @@ import { account,bank } from "../../../state/userInfo";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 const banklist=[
-    { value: '우리', label: '우리은행'},
-    { value: '신한', label: '신한은행'},
-    { value: '국민', label: '국민은행'},
+    {  label: '우리은행'},
+    {  label: '신한은행'},
+    {  label: '국민은행'},
+    {  label: '카카오뱅크'},
+    {  label: '농협은행'},
+    {  label: '하나은행'},
+    {  label: 'IBK기업은행'},
+    {  label: '새마을금고'},
+    {  label: '토스뱅크'},
+    {  label: '케이뱅크'},
+    {  label: '수협은행'},
+    
 ]
 
 const RegisterBank=({onChange})=>{
@@ -71,6 +80,7 @@ const RegisterBank=({onChange})=>{
         }),
         singleValue:(provided)=>({
             ...provided,
+            width:"100%",
             fontSize:"16px",
             display:"flex",
             justifyContent: "start",

@@ -113,7 +113,9 @@ const Myzero=()=>{
                     <Button type="submit" title="상품 등록하러 가기" onClick={()=>{
                         nav(`/registerZero/${userid}`);
                     }}/>
-                    <Button type="submit" title="상세페이지 보러 가기"/>
+                    <Button type="submit" title="상세페이지 보러 가기" onClick={()=>{
+                        nav(`./review`);
+                    }}/>
                 </div>
             </form>
             

@@ -65,7 +65,7 @@ const Productlists=()=>{
                 <button  onClick={(e)=>{
                     e.preventDefault();
                     setModal(true);
-                }}>판매량 저장</button>
+                }}>판매량 입력</button>
                 <button onClick={(e)=>{
                     e.preventDefault();
                     setDeleteModal(true);

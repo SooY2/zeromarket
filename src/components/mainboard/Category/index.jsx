@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 import {allicon,beautyicon,breadicon,clothingicon,dailyitemicon,foodicon,groceriesicon,officeitem,peticon} from "../../../assets/cateIcons";
 
 const catelists=[
-    {img: allicon,name:"전체"},
+    //{img: allicon,name:"전체"},
     {img: groceriesicon,name:"식료품"},
     {img: foodicon,name:"음식"},
     {img: breadicon,name:"카페/베이커리"},

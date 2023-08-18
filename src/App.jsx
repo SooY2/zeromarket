@@ -14,6 +14,7 @@ import {RecoilRoot} from "recoil";
 import Signup from './pages/Signup';
 import Product from './pages/Product';
 import ProductDetail from './pages/ProductDetail';
+import Review from './pages/Review';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path='/myzero/:userId' element={<Myzero/>}/>
           <Route path='/registerZero/:userId/*' element={<Product/>}/>
           <Route path='/zeromarket/:userId/:productId' element={<ProductDetail/>}/>
+          <Route path='/myzero/:userId/review' element={<Review/>}/>
           
         </Routes>
       </div>
