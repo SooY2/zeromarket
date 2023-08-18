@@ -95,7 +95,7 @@ const CreateProduct=()=>{
 
     //제출
     const submitProduct=(e)=>{
-        //e.preventDefault();
+        e.preventDefault();
         handleCombineDateTime();
         console.log(state);
         console.log(userid);
