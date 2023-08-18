@@ -44,9 +44,9 @@ const Login=()=>{
             localStorage.setItem("Coory", res.data.longitude);
         })
         .catch(err=>{
-            if(err.response.status===404){
-                alert("아이디와 비밀번호를 확인해주세요");
-            }
+            // if(err.response.status===404){
+            //     alert("아이디와 비밀번호를 확인해주세요");
+            // }
         })
         
     }

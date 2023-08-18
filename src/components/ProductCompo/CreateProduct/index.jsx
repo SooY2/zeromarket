@@ -3,7 +3,7 @@ import{MdOutlineImageSearch} from "react-icons/md";
 import { useState,useEffect } from "react";
 import axios from "axios";
 import axiosInstance from "../../../../axiosConfig";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import uptoggle from  "/src/assets/icons/uptoggleicon.png";
 import downtoggle from "/src/assets/icons/downtoggleicon.png";
 
@@ -11,6 +11,7 @@ const catelists=["식료품","음식","카페/베이커리","생활용품","패�
 
 const CreateProduct=()=>{
 
+    const nav=useNavigate();
     const userid=useParams().userId;
 
     const [state,setState]=useState({
@@ -94,13 +95,15 @@ const CreateProduct=()=>{
 
     //제출
     const submitProduct=(e)=>{
-        // e.preventDefault();
+         e.preventDefault();
         handleCombineDateTime();
         console.log(state);
+        console.log(userid);
         //서버에 post
         axiosInstance.post(`/product/${userid}`,state)
         .then(res=>{
             console.log(res);
+            //nav(`/registerZero/${userid}`);
         })
         .catch(err=>console.log(err));
     };
