@@ -95,14 +95,14 @@ const CreateProduct=()=>{
 
     //제출
     const submitProduct=(e)=>{
-        e.preventDefault();
+        //e.preventDefault();
         handleCombineDateTime();
         console.log(state);
         console.log(userid);
         //서버에 post
         axiosInstance.post(`/product/${userid}`,state)
         .then(res=>{
-            console.log(res);
+            console.log(res.data);
             //nav(`/registerZero/${userid}`);
         })
         .catch(err=>console.log(err));

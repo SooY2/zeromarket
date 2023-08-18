@@ -31,7 +31,7 @@ function App() {
           <Route path='/signup/register' element={<Register/>}/>
           <Route path='/zeromarket/:userId' element={<Mainpage/>}/>
           <Route path='/myzero/:userId' element={<Myzero/>}/>
-          <Route path='/registerZero/:userId' element={<Product/>}/>
+          <Route path='/registerZero/:userId/*' element={<Product/>}/>
           <Route path='/zeromarket/:userId/:productId' element={<ProductDetail/>}/>
           
         </Routes>
