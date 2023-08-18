@@ -59,7 +59,7 @@ const Myzero=()=>{
                 }}/></header>
             <form className={styles.box}>
                 <div className={styles.storeImg}>
-                    <img src=""/>
+                    <img src={data.picture}/>
                 </div>
                 <div className={styles.storeInfo}>
                     <span className={styles.span1}>
