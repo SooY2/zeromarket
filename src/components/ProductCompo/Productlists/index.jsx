@@ -7,8 +7,8 @@ import axios from "axios";
 import axiosInstance from "../../../../axiosConfig";
 import { useParams } from "react-router-dom";
 
-import { nowProductId } from "../../../state/product";
-import { useRecoilValue } from "recoil";
+import { nowProductId, productlist } from "../../../state/product";
+import { useRecoilValue,useRecoilState } from "recoil";
 // const datas=[
 //     {
 //         productId:123,
@@ -23,7 +23,8 @@ import { useRecoilValue } from "recoil";
 // ]
 
 const Productlists=()=>{
-    const [datas,setDatas]= useState([]);
+    //const [datas,setDatas]= useState([]);
+    const [datas,setDatas]=useRecoilState(productlist);
     const userid=useParams().userId;
     const productid=useRecoilValue(nowProductId);
 

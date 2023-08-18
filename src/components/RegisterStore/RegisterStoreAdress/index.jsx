@@ -6,6 +6,8 @@ import DaumPostcode from "react-daum-postcode";
 import { storeAddress,storeDetailAddress } from "../../../state/userInfo";
 import { useRecoilState } from "recoil";
 
+import searchIcon from "/src/assets/icons/searchicon.png";
+
 
 const RegisterStoreAddress=()=>{
     const [modal,setmodal]=useState(false);//모달띄울지 말지
@@ -47,7 +49,7 @@ const RegisterStoreAddress=()=>{
             setmodal(true);
         }}>
             <div>주소 찾기</div>
-            <img src="/src/assets/icons/searchicon.png"/>    
+            <img src={searchIcon}/>    
         </button>
         <input className={styles.input} 
             type="text"
